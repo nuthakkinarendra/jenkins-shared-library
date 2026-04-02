@@ -1,4 +1,8 @@
+import org.devops.Utils
+
 def call(String appName) {
+
+    def utils = new Utils()
 
     pipeline {
         agent any
@@ -7,19 +11,7 @@ def call(String appName) {
 
             stage('Build') {
                 steps {
-                    echo "Building ${appName}"
-                }
-            }
-
-            stage('Test') {
-                steps {
-                    echo "Testing ${appName}"
-                }
-            }
-
-            stage('Deploy') {
-                steps {
-                    echo "Deploying ${appName}"
+                    echo utils.printMessage("Building ${appName}")
                 }
             }
 
