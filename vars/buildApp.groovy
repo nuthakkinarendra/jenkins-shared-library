@@ -1,4 +1,4 @@
-def call() {
+def call(String appName) {
 
     pipeline {
         agent any
@@ -7,19 +7,19 @@ def call() {
 
             stage('Build') {
                 steps {
-                    echo "Building application..."
+                    echo "Building ${appName}"
                 }
             }
 
             stage('Test') {
                 steps {
-                    echo "Running tests..."
+                    echo "Testing ${appName}"
                 }
             }
 
             stage('Deploy') {
                 steps {
-                    echo "Deploying application..."
+                    echo "Deploying ${appName}"
                 }
             }
 
